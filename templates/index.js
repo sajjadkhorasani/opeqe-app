@@ -1,0 +1,1 @@
+export {CarouselTemplate} from './mainCarousel';

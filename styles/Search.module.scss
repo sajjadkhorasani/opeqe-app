@@ -1,0 +1,151 @@
+.selfSearch {
+	position: relative;
+	display: flex;
+	justify-content: stretch;
+	align-items: center;
+	flex-grow: 1;
+
+	> *:focus {
+		outline: 0;
+	}
+
+	> .btn_type {
+		position: relative;
+		width: 100px;
+		height: 45px;
+		background: black;
+		color: white;
+		border-start-start-radius: 30px;
+		border-end-start-radius: 30px;
+		border: 0;
+		cursor: pointer;
+	}
+
+	> input {
+		position: relative;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		flex-grow: 1;
+		padding: 0.8rem 1rem;
+		height: 45px;
+		background: #d7d7d7;
+		border: 0;
+		&::placeholder {
+			color: #696969;
+		}
+	}
+
+	> .btn_search {
+		position: relative;
+		width: 100px;
+		height: 45px;
+		background: #026764;
+		color: white;
+		border-start-end-radius: 30px;
+		border-end-end-radius: 30px;
+		border: 0;
+		cursor: pointer;
+		> svg {
+			width: 24px;
+			height: 24px;
+		}
+	}
+
+	.search_menu_list {
+		position: absolute;
+		top: 50px;
+		left: 0;
+		width: 100%;
+		display: flex;
+		justify-content: stretch;
+		align-items: stretch;
+		background: white;
+		max-height: 500px;
+		padding: 0.5rem;
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+		border-radius: 5px;
+		overflow: hidden;
+		overflow-y: auto;
+		z-index: 10;
+		> ul {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			margin-bottom: 10px;
+			> li {
+				position: relative;
+				cursor: pointer;
+				transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+				&:hover {
+					background: rgba(0, 0, 0, 0.2);
+					transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+				}
+				&:not(:last-child) {
+					border-bottom: 1px solid #d7d7d7;
+				}
+				> .search_menu_list_item_wrapper {
+					position: relative;
+					display: flex;
+					width: 100%;
+					height: 100%;
+					justify-content: flex-start;
+					align-items: center;
+					flex-wrap: nowrap;
+					padding: 0.3rem 0;
+					> .search_menu_list_item_wrapper_img {
+						position: relative;
+						display: flex;
+						justify-content: stretch;
+						align-items: stretch;
+						> div {
+							border-radius: 5px;
+						}
+					}
+
+					> .search_menu_list_item_wrapper_info {
+						position: relative;
+						display: flex;
+						justify-content: flex-start;
+						align-items: flex-start;
+						flex-direction: column;
+						flex-wrap: nowrap;
+						flex-grow: 1;
+						padding: 0.1rem 0.5rem;
+						> h5 {
+							margin: 0;
+							font-size: 15px;
+						}
+
+						> span {
+							color: #026764;
+							font-size: 14px;
+							margin: 0;
+							margin-top: 5px;
+						}
+
+						> .label {
+							position: relative;
+							display: flex;
+							justify-content: flex-start;
+							align-items: center;
+							margin-top: 0.5rem;
+							> span {
+								padding: 3px 5px;
+								background: #d7d7d7;
+								border-radius: 30px;
+								font-size: 12px;
+								&:not(:last-child) {
+									margin-inline-end: 0.2rem;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
