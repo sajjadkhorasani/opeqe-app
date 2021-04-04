@@ -29,18 +29,20 @@
 		align-items: flex-start;
 		flex-wrap: nowrap;
 		max-width: 100%;
-		padding-top: 10px;
+		padding-bottom: 20px;
 		overflow: hidden;
 		overflow-x: auto;
 		&::-webkit-scrollbar {
-			height: 0;
-			width: 0;
+			height: 5px;
+			width: 5px;
 		}
 		&::-webkit-scrollbar-track {
-			background: transparent;
+			border-radius: 5px;
+			background: rgba(0, 0, 0, 0.1);
 		}
 		&::-webkit-scrollbar-thumb {
-			background: transparent;
+			border-radius: 5px;
+			background: rgba(0, 0, 0, 0.4);
 		}
 
 		> .self_menu_list_item {
