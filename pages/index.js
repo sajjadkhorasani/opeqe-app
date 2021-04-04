@@ -52,6 +52,13 @@ export default function Home() {
 					</div>
 					<div className={styles.header_right_wrapper} data-show={menu}>
 						<div className={styles.header_right}>
+							{menu && (
+								<Link href='/' passHref>
+									<a>
+										<Image src='/opeqe-logo.svg' alt='Opeqe Inc' width='170px' height='50px' />
+									</a>
+								</Link>
+							)}
 							<Link href='https://demo.opeqe.com/order-history' passHref>
 								<a className={styles.hoverable}>Orders</a>
 							</Link>
@@ -69,6 +76,15 @@ export default function Home() {
 									<FontAwesomeIcon icon='shopping-bag' size='1x' />
 								</a>
 							</Link>
+							{menu && (
+								<div>
+									<Link href='https://github.com/sajjadkhorasani' passHref>
+										<a className={styles.hoverable}>
+											Copyright © 2021 Khorasani, Inc. All rights reserved.
+										</a>
+									</Link>
+								</div>
+							)}
 						</div>
 					</div>
 					<button onClick={() => setMenu(!menu)}>
