@@ -4,27 +4,57 @@ import styles from '../../styles/Search.module.scss';
 import Image from 'next/image';
 
 export const SelfSearch = ({database}) => {
-	const [newDB, setNewDB] = useState(database);
+	const [newDB, setNewDB] = useState({
+		show: false,
+		database,
+	});
 	const [type, setType] = useState('ALL');
 
 	const onChangehandler = (e) => {
 		e.preventDefault();
-		if (e.target.value.length && newDB) {
+		if (e.target.value.length && newDB.database) {
 			const key = new RegExp(e.target.value);
-			setNewDB([...database.items.filter((item) => key.test(item.title.toLowerCase()))]);
+			setNewDB({
+				show: true,
+				database: [...database.items.filter((item) => key.test(item.title.toLowerCase()))],
+			});
 		} else if (!e.target.value.length) {
-			setNewDB(database);
+			setNewDB({
+				show: true,
+				database: [...database.items],
+			});
 		}
+	};
+
+	const onFocusHandler = (e) => {
+		e.preventDefault();
+		setNewDB({
+			show: true,
+			database: [...database.items],
+		});
+	};
+
+	const onBlurHandler = (e) => {
+		e.preventDefault();
+		setNewDB({
+			show: false,
+			database: [...database.items],
+		});
 	};
 
 	return (
 		<div className={styles.selfSearch}>
 			<button className={styles.btn_type}>{type}</button>
-			<input onChange={onChangehandler} placeholder='Looking for something?' />
-			{newDB && newDB.length ? (
+			<input
+				onChange={onChangehandler}
+				onFocus={onFocusHandler}
+				onBlur={onBlurHandler}
+				placeholder='Looking for something?'
+			/>
+			{newDB.show && newDB.database.length ? (
 				<div className={styles.search_menu_list}>
 					<ul>
-						{newDB.map((item, index) => (
+						{newDB.database.map((item, index) => (
 							<li className={styles.search_menu_list_item} key={index}>
 								<div className={styles.search_menu_list_item_wrapper}>
 									<div className={styles.search_menu_list_item_wrapper_img}>

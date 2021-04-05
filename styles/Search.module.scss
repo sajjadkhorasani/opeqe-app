@@ -9,6 +9,13 @@
 		outline: 0;
 	}
 
+	@media screen and (max-width: 500px) {
+		> button {
+			width: auto !important;
+			padding: 0.5rem 1rem !important;
+		}
+	}
+
 	> .btn_type {
 		position: relative;
 		width: 100px;
@@ -68,6 +75,19 @@
 		overflow: hidden;
 		overflow-y: auto;
 		z-index: 10;
+		&::-webkit-scrollbar {
+			height: 10px;
+			width: 10px;
+		}
+		&::-webkit-scrollbar-track {
+			border-radius: 10px;
+			background: rgba(0, 0, 0, 0.1);
+		}
+		&::-webkit-scrollbar-thumb {
+			border-radius: 10px;
+			background: rgba(0, 0, 0, 0.4);
+		}
+
 		> ul {
 			position: relative;
 			width: 100%;
